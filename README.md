@@ -15,10 +15,10 @@ cd testCybersell
 
 python -m venv .venv
 
-Windows
+Windows \
 .\.venv\Scripts\activate
 
-Linux / Mac
+Linux / Mac \
 source .venv/bin/activate
 
 3. Install dependencies:
@@ -31,10 +31,10 @@ pip install -r requirements.txt
 
 2. Create a .env file in project root:
 
-PROVIDER=hf         # or 'mock' for local testing
-HF_API_URL=https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english
-HF_API_TOKEN=<YOUR_HF_TOKEN>
-CACHE_TTL=3600
+PROVIDER=hf # or 'mock' for local testing \
+HF_API_URL=https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english \
+HF_API_TOKEN=<YOUR_HF_TOKEN> \
+CACHE_TTL=3600 \
 EXTERNAL_TIMEOUT=5
 
 If you use mock, you can skip HF_API_TOKEN.
@@ -56,6 +56,7 @@ curl -X 'POST' \
   -d '{"text": "Good product"}'
 
 Response:
+```json 
 {
   "labels": [
     {
@@ -72,12 +73,15 @@ Response:
     "provider": "hf"
   }
 }
+```
 
 ## 5. Health Check
 curl http://localhost:8000/health
 
 Response:
-{
-  "status": "ok",
-  "provider": "hf"
+```json
+{ 
+  "status": "ok", 
+  "provider": "hf" 
 }
+```
